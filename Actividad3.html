@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        .error {
+            color: #ff69b4; /* Color rosa */
+            display: none;  /* Oculto inicialmente */
+        }
+    </style>
+    <script>
+        function validarFormulario(event) {
+            const nombre = document.getElementById("nombre").value;
+            const errorLabel = document.getElementById("errorNombre");
+
+            if (nombre === "") {
+                errorLabel.style.display = "block"; // Mostrar la etiqueta de error
+                event.preventDefault(); // Evitar que el formulario se envíe
+            } else {
+                errorLabel.style.display = "none"; // Ocultar la etiqueta si ya está corregido
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <h2>Formulario de Registro</h2>
+    <form onsubmit="validarFormulario(event)">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="noname">
+        <br>
+        <span id="errorNombre" class="error">Por favor, introduce un nombre.</span>
+        <br><br>
+        <input type="submit" value="Registrarse">
+    </form>
+
+</body>
+</html>
