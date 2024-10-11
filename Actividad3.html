@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario de Registro</title>
+    <style>
+        /* Estilos generales */
+        body {
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+            margin: 0;
+        }
+
+        /* Estilo del contenedor del formulario */
+        .form-container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+            text-align: center;
+        }
+
+        /* Estilos de los campos del formulario */
+        label {
+            margin-top: 10px;
+            display: block;
+            font-weight: bold;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: border-color 0.3s ease;
+        }
+
+        input[type="text"]:focus {
+            border-color: #007BFF;
+            outline: none; /* Eliminar el contorno predeterminado */
+        }
+
+        /* Estilo del mensaje de error */
+        .error {
+            color: #ff69b4; /* Color rosa */
+            display: none;  /* Oculto inicialmente */
+        }
+
+        /* Estilo del botón */
+        input[type="submit"] {
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+    <script>
+        function validarFormulario(event) {
+            const nombre = document.getElementById("nombre").value;
+            const errorLabel = document.getElementById("errorNombre");
+
+            if (nombre === "") {
+                errorLabel.style.display = "block"; // Mostrar la etiqueta de error
+                event.preventDefault(); // Evitar que el formulario se envíe
+            } else {
+                errorLabel.style.display = "none"; // Ocultar la etiqueta si ya está corregido
+            }
+        }
+    </script>
+</head>
+<body>
+
+    <div class="form-container">
+        <h2>Formulario de Registro</h2>
+        <form onsubmit="validarFormulario(event)">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="noname">
+            <span id="errorNombre" class="error">Por favor, introduce un nombre.</span>
+            <input type="submit" value="Registrarse">
+        </form>
+    </div>
+
+</body>
+</html>
